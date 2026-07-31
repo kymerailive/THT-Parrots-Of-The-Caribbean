@@ -113,6 +113,21 @@ font-weight:800;cursor:pointer;font:inherit;box-shadow:0 4px 14px rgba(124,92,25
 .npclink{color:var(--text);text-decoration:none;border-bottom:1px dotted var(--faint)}
 .npcgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
 .npcgrid .pcard{margin:0}
+
+/* ---- the forge ---- */
+.pcard label{display:block;margin:12px 0 4px;font-size:13px;color:#9fb0c9}
+.pcard input[type=text],.pcard select,.pcard textarea{
+  width:100%;box-sizing:border-box;padding:9px 11px;border-radius:9px;
+  background:#0d1420;border:1px solid #24344b;color:#e8eef7;
+  font:inherit;font-size:14px}
+.pcard textarea{resize:vertical;min-height:64px}
+.pcard input:focus,.pcard select:focus,.pcard textarea:focus{
+  outline:none;border-color:#4d7fb8}
+#f-send{margin-top:14px;padding:11px 20px;min-height:44px;border-radius:10px;
+  border:none;background:#2f6f4f;color:#fff;font:inherit;font-size:14px;
+  font-weight:600;cursor:pointer}
+#f-send:disabled{opacity:.6;cursor:default}
+.ok{margin-top:10px;color:#6ee7a8;font-size:13px}
 </style></head><body>
 <div id="gate"><div class="gatecard">
   <h1>Parrots of the Caribbean</h1>
@@ -128,12 +143,14 @@ font-weight:800;cursor:pointer;font:inherit;box-shadow:0 4px 14px rgba(124,92,25
     <button class="tabbtn" data-t="players" onclick="pick('players')">Players</button>
     <button class="tabbtn" data-t="base" onclick="pick('base')">Base</button>
     <button class="tabbtn" data-t="npcs" onclick="pick('npcs')">NPCs</button>
+    <button class="tabbtn" data-t="forge" id="forgetab" style="display:none"
+            onclick="pick('forge')">Forge</button>
     <span class="updated" id="updated"></span>
   </header>
   <div id="main"></div>
 </div>
 <script>
-const ENC={salt:"SJBhrDBi8apoqQES4udpgw==",iv:"HOiMX4t0OuzjPJRX",ct:"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",iter:310000};
+const ENC={salt:"JHaw0UWaT4XREGMyQs9wCg==",iv:"XTQceefXd2g7v74U",ct:"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",iter:310000};
 let DATA=null,LIVE=null,liveOk=false,lastSig='',tab='team';
 let selHale=null,selNpc=null;
 const BLOBS={};
@@ -153,6 +170,9 @@ async function unlock(){
   }catch(e){err.textContent='That passcode does not open this tide.';return}
   document.getElementById('gate').style.display='none';
   document.getElementById('app').style.display='block';
+  // The Forge tab exists only for a team that has dealt with Kawelo. Teams who
+  // haven't never see it — the forge is earned in fiction, not advertised.
+  if((DATA.forge||{}).unlocked)document.getElementById('forgetab').style.display='';
   render();
   startLive();
 }
@@ -334,6 +354,8 @@ function render(){
           tab='base';selNpc=c.key;selHale=null;render();
           document.querySelectorAll('.tabbtn').forEach(x=>x.classList.toggle('on',x.dataset.t==='base'))};
       }});
+  }else if(tab==='forge'){
+    m.innerHTML='<h1>The Forge</h1>'+forgeForm();
   }else{
     m.innerHTML='<h1>Players</h1>'+DATA.players.map(p=>{
       const sk=Object.entries(p.skills||{}).filter(e=>e[1]>0)
@@ -348,6 +370,70 @@ function render(){
         <div class="pmeta">💰 ${money(p.wallet)}${sk?' · 🎓 '+esc(sk):''}</div>
         <table><thead><tr><th>Item</th><th>Qty</th><th>About</th></tr></thead><tbody>${inv}</tbody></table>
         </div>`;}).join('');
+  }
+}
+
+/* ---- the forge ----
+   Buy a card from Kawelo, author the NPC here, a dev rules on it. The form
+   shows only the fields that card pays for, and only the jobs still open. */
+function forgeRarity(){
+  const s=document.getElementById('f-rarity');
+  return s?s.value:'common';
+}
+function forgeForm(){
+  const F=DATA.forge||{}, r=forgeRarity();
+  const fields=(F.fields||{})[r]||[];
+  const jobs=(F.jobs||[]).filter(j=>r==='special'||
+      (F.tiers||[]).indexOf(j.tier)<=(F.tiers||[]).indexOf(r));
+  const rows=fields.map(f=>{
+    if(f==='job'){
+      const opts=jobs.map(j=>`<option value="${esc(j.title)}">${esc(j.title)}`
+        +` — ${esc(j.tier)}${j.left!==null&&j.left!==undefined?' ('+j.left+' left)':''}`
+        +`</option>`).join('');
+      return `<label>${esc((F.prompts||{}).job||'Job')}
+        <select id="f-job">${opts||'<option value="">no posts open</option>'}</select></label>`;
+    }
+    const big=['personality','voice','backstory','goal','ability','trait'].indexOf(f)>=0;
+    const p=esc((F.prompts||{})[f]||f);
+    return big?`<label>${p}<textarea id="f-${f}" rows="3"></textarea></label>`
+              :`<label>${p}<input id="f-${f}" type="text"></label>`;
+  }).join('');
+  const face=(F.portrait||[]).indexOf(r)>=0
+    ? `<p class="muted">This card lets you choose their face — hand the picture
+       to a dev when they approve.</p>`
+    : `<p class="muted">The card picks their face from the pool.</p>`;
+  return `<div class="pcard"><h2>Forge an NPC</h2>
+    <p class="muted">${esc((F.blurb||{})[r]||'')}</p>
+    <label>Which card are you spending?
+      <select id="f-rarity" onchange="render()">
+        ${['common','uncommon','rare','legendary','special'].map(x=>
+          `<option value="${x}"${x===r?' selected':''}>${x}</option>`).join('')}
+      </select></label>
+    <label>Your player name<input id="f-player" type="text"
+      placeholder="so the dev knows whose card to take"></label>
+    ${rows}${face}
+    <button id="f-send" onclick="forgeSend()">Send to the devs</button>
+    <div class="err" id="f-err"></div></div>`;
+}
+async function forgeSend(){
+  const F=DATA.forge||{}, r=forgeRarity();
+  const err=document.getElementById('f-err');
+  const body={rarity:r,player:(document.getElementById('f-player')||{}).value||''};
+  ((F.fields||{})[r]||[]).forEach(f=>{
+    const el=document.getElementById('f-'+f);
+    if(el)body[f]=el.value;
+  });
+  body.portrait=(F.portrait||[]).indexOf(r)>=0;
+  const btn=document.getElementById('f-send');
+  if(btn){btn.disabled=true;btn.textContent='Sending…';}
+  try{
+    await api('/api/team/forge-submit',body);
+    err.className='ok';
+    err.textContent='Sent. A dev will confirm your card and make them real.';
+  }catch(e){
+    err.className='err';
+    err.textContent=e.message;
+    if(btn){btn.disabled=false;btn.textContent='Send to the devs';}
   }
 }
 document.addEventListener('DOMContentLoaded',()=>{
