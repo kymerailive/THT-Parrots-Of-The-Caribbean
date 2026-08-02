@@ -136,7 +136,7 @@ font-weight:800;cursor:pointer;font:inherit;box-shadow:0 4px 14px rgba(124,92,25
 .fc-file::file-selector-button{margin-right:9px;padding:7px 12px;
   border-radius:8px;border:1px solid #24344b;background:#131c2b;
   color:#c7d4e6;font:inherit;font-size:12.5px;cursor:pointer}
-.fc-go{min-height:40px;padding:8px 18px}
+.lg-go{min-height:40px;padding:8px 18px;margin-top:8px}
 .fc-msg{margin-top:7px;font-size:12.5px}
 .fc-msg.ok{color:#6ee7a8}
 .fc-msg.err{color:#e79a9a}
@@ -168,6 +168,15 @@ font-weight:800;cursor:pointer;font:inherit;box-shadow:0 4px 14px rgba(124,92,25
 #j-new .gbtn{margin-right:12px}
 
 /* ---- squads (inside the NPCs tab) ---- */
+.sqhead{display:flex;gap:14px;align-items:flex-start}
+.sqhead-t{flex:1;min-width:0}
+.sqhead h2{margin-top:0}
+.sqlogo{width:56px;height:56px;border-radius:14px;flex-shrink:0;display:flex;
+  align-items:center;justify-content:center;background:#131c2b;
+  border:1px solid #24344b;color:#7f92ad;font-weight:800;font-size:16px;
+  overflow:hidden}
+.sqlogo img{width:100%;height:100%;object-fit:cover;display:block}
+.logorow{margin-top:14px;padding-top:12px;border-top:1px solid #1e2c40}
 .muster{margin:0 0 26px;padding-bottom:22px;border-bottom:1px solid #1e2c40}
 .muster>h2:first-child{margin-top:0}
 .squad h2{display:flex;align-items:center;gap:10px}
@@ -227,7 +236,7 @@ font-weight:800;cursor:pointer;font:inherit;box-shadow:0 4px 14px rgba(124,92,25
   <div id="main"></div>
 </div>
 <script>
-const ENC={salt:"tVdMK+/ro8vC4+niAaqYdA==",iv:"Q+AmTWLFwjwXJoW5",ct:"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",iter:310000};
+const ENC={salt:"+2RQhbTiKzEHw+CU9jaHSA==",iv:"/vQkCJhJVIUORwGT",ct:"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",iter:310000};
 let DATA=null,LIVE=null,liveOk=false,lastSig='',tab='team';
 let selHale=null,selNpc=null;
 const BLOBS={};
@@ -479,13 +488,27 @@ function squadCard(s){
       <button class="linkbtn sq-home">recall to base</button></div>`;
   }
   return `<div class="pcard squad" data-sq="${esc(s.id)}">
-    <h2>${esc(s.name)} <button class="linkbtn sq-kill">disband</button></h2>
-    <div class="pmeta">${status}</div>
+    <div class="sqhead">
+      <div class="sqlogo">${esc(initials(s.name))}</div>
+      <div class="sqhead-t">
+        <h2>${esc(s.name)} <button class="linkbtn sq-kill">disband</button></h2>
+        <div class="pmeta">${status}</div>
+      </div>
+    </div>
     <table class="sqtab"><tbody>${rows}</tbody></table>
     <div class="sqadd">
       <select class="sq-new">${free||'<option value="">everyone is posted</option>'}</select>
       <button class="linkbtn sq-add">post to squad</button></div>
-    ${controls}</div>`;
+    ${controls}
+    <div class="logorow">
+      <label class="facelab">${s.logo?'Replace their logo':'Give them a logo'}
+        <input type="file" class="lg-file"
+               accept="image/png,image/jpeg,image/gif,image/webp"></label>
+      <button class="gbtn lg-go">Upload</button>
+      <div class="fc-msg muted lg-msg"></div>
+      <p class="hint">A picture or a gif, 10MB max — the mark this squad
+      carries. It goes with them, and goes when they disband.</p>
+    </div></div>`;
 }
 function placeName(k){
   const p=(SQ&&SQ.places||[]).find(x=>x.key===k);
@@ -494,6 +517,37 @@ function placeName(k){
 function wireSquad(el){
   const sid=el.dataset.sq;
   const q=(s)=>el.querySelector(s);
+  const rec=(SQ.squads||[]).find(x=>x.id===sid)||{};
+  const badge=q('.sqlogo');
+  if(badge&&rec.logo)blobFor('/api/team/squad-logo-img?id='+encodeURIComponent(sid),
+                             'squad:'+sid).then(u=>{
+    if(u)badge.innerHTML='<img src="'+u+'" alt="">'});
+  const lgo=q('.lg-go');
+  if(lgo)lgo.onclick=async()=>{
+    const msg=q('.lg-msg');
+    // classList, not className — the element is re-queried by its .lg-msg
+    // hook, and overwriting className would strip that hook off after the
+    // first message, leaving the second one with nowhere to land.
+    const say=(cls,text)=>{
+      msg.classList.remove('muted','ok','err');
+      msg.classList.add(cls);msg.textContent=text;
+    };
+    let pic;
+    try{pic=await fileB64(q('.lg-file'))}
+    catch(e){say('err',e.message);return}
+    if(!pic){say('muted','Pick a file first.');return}
+    lgo.disabled=true;lgo.textContent='Uploading…';msg.textContent='';
+    try{
+      const j=await api('/api/team/squad-logo',
+        {id:sid,filename:pic.filename,content_type:pic.content_type,data:pic.data});
+      BLOBS['squad:'+sid]=undefined;      // drop the cached old mark
+      if(j&&j.squads)SQ=j;
+      sqErr='';render();
+    }catch(e){
+      say('err',e.message);
+      lgo.disabled=false;lgo.textContent='Upload';
+    }
+  };
   el.querySelectorAll('tr[data-npc]').forEach(tr=>{
     const npc=tr.dataset.npc;
     const sel=tr.querySelector('.sq-role');
@@ -612,17 +666,6 @@ function npcCard(c,withMove){
         ${c.away?'<div class="pmeta"><span class="sqtag walking">away</span>'+esc(c.away)+'</div>':''}
         ${c.squad?'<div class="pmeta muted">🛡️ '+esc(c.squad)+(c.squad_role?' · '+esc(c.squad_role):'')+'</div>':''}
       </div></div>
-    ${(liveOk&&c.forge&&['rare','legendary','special'].indexOf(c.forge.rarity)>=0)?`
-    <div class="facerow">
-      <label class="facelab">Their face
-        <input type="file" class="fc-file" accept="image/png,image/jpeg,image/gif,image/webp">
-      </label>
-      <button class="gbtn fc-go">Upload</button>
-      <div class="fc-msg muted"></div>
-      <p class="hint">A ${esc(c.forge.rarity)} card chooses its own face — upload
-      a picture or a gif (10MB max). Common and Uncommon are given one from the
-      pool instead.</p>
-    </div>`:''}
     ${squadPicker(c)}
     ${c.forge&&c.forge.owner?'<div class="pmeta forgeline">🜲 forged by <b>'
       +esc(c.forge.owner)+'</b>'+(c.forge.rarity?' · '+esc(c.forge.rarity):'')
@@ -637,33 +680,6 @@ function npcCard(c,withMove){
 function wireNpcCard(root,c){
   wirePortrait(root.querySelector('.portrait'),c);
   wireSquadPicker(root);
-  const fgo=root.querySelector('.fc-go');
-  if(fgo)fgo.onclick=async()=>{
-    const inp=root.querySelector('.fc-file'), msg=root.querySelector('.fc-msg');
-    const f=inp&&inp.files&&inp.files[0];
-    if(!f){msg.textContent='Pick a file first.';return}
-    if(f.size>10*1024*1024){msg.textContent='That file is over 10MB.';return}
-    fgo.disabled=true;fgo.textContent='Uploading…';msg.textContent='';
-    try{
-      // Read as base64 — the team API speaks JSON, and a data URL keeps the
-      // bytes intact through it without a multipart parser on either side.
-      const b64=await new Promise((res,rej)=>{
-        const r=new FileReader();
-        r.onload=()=>res(String(r.result).split(',')[1]||'');
-        r.onerror=()=>rej(new Error('could not read that file'));
-        r.readAsDataURL(f);
-      });
-      await api('/api/team/npc-portrait',
-        {npc:c.key,filename:f.name,content_type:f.type,data:b64});
-      msg.className='fc-msg ok';
-      msg.textContent='Uploaded — their face is set.';
-      BLOBS[c.key]=undefined;           // drop the cached old portrait
-      lastSig='';await pollBase();
-    }catch(e){
-      msg.className='fc-msg err';msg.textContent=e.message;
-    }
-    fgo.disabled=false;fgo.textContent='Upload';
-  };
   const go=root.querySelector('.mv-go');
   if(go)go.onclick=async()=>{
     const house=root.querySelector('.mv-house').value;
@@ -760,7 +776,7 @@ function render(){
       const c=(b.npcs||{})[el.dataset.npc];
       if(c){wireNpcCard(el,c);
         el.style.cursor='pointer';
-        el.onclick=e=>{if(e.target.closest('.moverow,.facerow,.sqpick,a'))return;
+        el.onclick=e=>{if(e.target.closest('.moverow,.sqpick,a'))return;
           tab='base';selNpc=c.key;selHale=null;render();
           document.querySelectorAll('.tabbtn').forEach(x=>x.classList.toggle('on',x.dataset.t==='base'))};
       }});
